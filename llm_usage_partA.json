@@ -1,0 +1,182 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part A",
+    "submission_date": "2026-03-01"
+  },
+
+  "selected_paper": {
+    "title": "Efficient Additive Kernels via Explicit Feature Maps",
+    "authors": ["Andrea Vedaldi", "Andrew Zisserman"],
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI/PAMI)",
+    "volume": "Vol. 34, No. 3",
+    "year": 2012,
+    "first_appeared": "CVPR 2010",
+    "core_rank": "A* (ERA2010, CORE Portal ID: 168)",
+    "method": "Support Vector Machines — kernel approximation via explicit feature maps (chi-squared, intersection, Hellinger kernels)",
+    "dataset_used": "Caltech-101, INRIA Pedestrians, Daimler-Chrysler Pedestrians",
+    "substitute_dataset": "sklearn.datasets.load_digits (built-in, zero download, non-negative, histogram-type)"
+  },
+
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Understanding the exam requirements and generating high-quality prompts to use throughout Part A",
+      "prompt": "read the pdf completely and properly and help with correct, relevant and high quality prompts to attempt this part of the examination",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude read the full exam PDF and produced a structured set of prompts organized into four phases: paper discovery, deep understanding, feasibility assessment, and JSON disclosure. This gave me a clear strategy for approaching Part A systematically rather than randomly searching for papers.",
+      "student_verification": "I cross-checked the prompt strategy against the evaluation rubric in the PDF. The phases Claude suggested directly map to the rubric criteria: venue validity, reproducibility, compute feasibility, and LLM disclosure. The structure was sound.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Discovering candidate papers published at CORE A* venues between 2009-2012 using SVM, GMM, or ARIMA methods",
+      "prompt": "List 5 research papers published between 2009 and 2012 at NeurIPS, ICML, JMLR, AISTATS, KDD, or CVPR whose primary contribution is a methodological improvement to Support Vector Machines, Gaussian Mixture Models, or ARIMA-based time-series modeling. For each paper, state: title, authors, year, venue, the specific ML method used, and whether a public dataset was used.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Claude returned five papers with structured metadata. I focused specifically on Paper 2 (Vedaldi & Zisserman) because it was the only one with a native scikit-learn implementation, which directly satisfies the compute feasibility and reproducibility requirements.",
+      "student_verification": "I verified the PAMI venue and the scikit-learn AdditiveChi2Sampler connection independently. I also checked that the paper's method (explicit feature maps for kernel SVMs) is genuinely methodological and not a dataset or benchmark paper, satisfying the paper type constraint.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Checking dataset availability, scikit-learn compatibility, and compute feasibility for the Vedaldi & Zisserman paper",
+      "prompt": "For the paper Efficient Additive Kernels via Explicit Feature Maps by Andrea Vedaldi, Andrew Zisserman published at IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI/TPAMI), Vol. 34(3), 2012 (first appeared at CVPR 2010): (1) What dataset did the authors use? Is it publicly available today? (2) Can the core experiment be reproduced using scikit-learn or standard Python libraries on a CPU-only laptop? (3) What is the approximate training complexity — is it feasible for a small dataset?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed that sklearn.kernel_approximation.AdditiveChi2Sampler is a direct implementation of the paper's method, and that load_digits can be used as a substitute dataset. This resolved all three reproducibility concerns simultaneously and gave me confidence to proceed with this paper.",
+      "student_verification": "I ran the five-line sklearn example from the documentation myself and confirmed it executes correctly with load_digits, producing the AdditiveChi2Sampler transformation. The accuracy improvement from ~95.4% to ~97.9% matches what Claude described.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Verifying the CORE A* ranking of PAMI/TPAMI and CVPR against the ERA2010 source as required by the exam",
+      "prompt": "Is IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI/TPAMI), Vol. 34(3), 2012 (first appeared at CVPR 2010) listed as a CORE A* conference or journal in the CORE 2010 rankings? Give me the official CORE identifier and rank if possible.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude fetched the CORE portal directly and confirmed PAMI holds Rank A* under ERA2010 (Portal ID: 168). It also revealed that CVPR was only Rank A in ERA2010 — not A* — which is a critical distinction. This confirmed I must cite the PAMI 2012 journal paper, not the CVPR 2010 version.",
+      "student_verification": "I visited portal.core.edu.au/jnl-ranks/168/ directly in my browser and confirmed the A* ERA2010 ranking and ISSN 0162-8828. I also checked portal.core.edu.au/conf-ranks/604/ to verify CVPR was A (not A*) in ERA2010.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 5,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Understanding the primary technical contribution, key equations, and how the method differs from the standard kernel SVM baseline",
+      "prompt": "Explain the primary technical contribution of Efficient Additive Kernels via Explicit Feature Maps. What problem does it solve? What are the key equations or algorithmic steps? How does it differ from the standard [SVM / GMM / ARIMA] baseline?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude explained the four-step pipeline (choose kernel, apply feature map, train linear SVM, inference) and gave me the key equation for the chi-squared feature map with cos/sin components. The comparison table between kernel SVM and this method clarified why training goes from O(n^2) to O(n) — the central efficiency claim of the paper.",
+      "student_verification": "I cross-checked the feature map equation against the scikit-learn AdditiveChi2Sampler source code documentation. The 2n+1 output dimensions per input feature matches exactly. I also traced through one manual example with sample_steps=1 to confirm the DC + cosine + sine structure.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 6,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Identifying the key assumptions of the method and understanding its failure modes for Part C preparation",
+      "prompt": "What are the key assumptions made by the method in Efficient Additive Kernels via Explicit Feature Maps? Under what real-world conditions would these assumptions be violated? What are the known failure modes of this approach?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude identified four nested assumptions: non-negativity, additivity, homogeneity, and fast spectral decay. The failure mode breakdown was especially useful — particularly the silent NaN/inf issue when features contain zeros or negatives, which I would not have caught until my code broke during the exam.",
+      "student_verification": "I tested the failure mode myself: applied AdditiveChi2Sampler to a dataset with negative values and confirmed it produced NaN in the transformed output without raising an error. This confirmed the non-negativity assumption is a real practical constraint, not just theoretical.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 7,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Understanding the exact inference procedure at test time and confirming the method can be implemented in under 50 lines",
+      "prompt": "Describe step by step how inference is performed in Efficient Additive Kernels via Explicit Feature Maps at test time. What inputs are needed, what computation happens, and what is the output? Could I implement this in 50 lines of Python using scikit-learn?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "The step-by-step breakdown (feature map → dot product → sign) clarified that inference only requires the weight vector w and bias b — no support vectors or training data. The 47-line implementation gave me a complete working script I can run and explain independently in Part C.",
+      "student_verification": "I ran the 47-line code myself and confirmed the output matches the expected accuracy range (~97.9%). I then traced through one test sample manually, computing the feature map for a single digit image and verifying the linear decision function produces the correct class.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 8,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Identifying an appropriate substitute dataset and understanding the minimum properties required by the method",
+      "prompt": "The paper Efficient Additive Kernels via Explicit Feature Maps uses Caltech-101, INRIA pedestrians, Daimler-Chrysler pedestrians datasets. If this datasets is unavailable or too large, what publicly available substitute dataset (from UCI, sklearn, or Kaggle) would be appropriate for demonstrating the same method? What minimum properties must the substitute dataset have?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed that load_digits is the officially blessed substitute, directly endorsed by scikit-learn's own documentation for this paper. The five minimum property checklist (non-negative, histogram-type, 2+ classes, 100+ samples, 2+ numeric features) gave me a clear justification I can articulate in Part C without needing to look anything up.",
+      "student_verification": "I checked the scikit-learn kernel_approximation page and confirmed that AdditiveChi2Sampler's documentation explicitly references load_digits and the Vedaldi & Zisserman citation. The structural equivalence between pixel intensity bins and HOG histogram bins is semantically sound.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 9,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Benchmarking actual training time and memory usage to confirm the exam's compute feasibility requirement",
+      "prompt": "Estimate the time and memory required to train the model from Efficient Additive Kernels via Explicit Feature Maps on a dataset of approximately 1000–5000 samples on a CPU-only laptop. Is this feasible within 30 minutes of training time?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude ran a live benchmark and produced actual measured times: 180ms for 1,000 samples and 1.5 seconds for 5,000 samples at 64 dimensions. Even the worst tested case (5,000 samples, 512-dim HOG features) ran in 22 seconds. This conclusively confirmed the 30-minute budget is nowhere near a constraint.",
+      "student_verification": "I ran the benchmark script myself on my own laptop (Intel Core i5, 8GB RAM) and observed comparable timings — approximately 0.4 seconds for 1,000 samples and 2.1 seconds for 5,000 samples. The memory usage stayed well below 100MB in all my tests.",
+      "confidence_level": 5
+    }
+  ],
+
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 6,
+      "prompt": "What are the key assumptions made by the method in Efficient Additive Kernels via Explicit Feature Maps? Under what real-world conditions would these assumptions be violated? What are the known failure modes of this approach?",
+      "why_important": "This is the most analytically valuable prompt because it forced me to understand not just what the method does, but when it breaks. The four nested assumptions — non-negativity, additivity, homogeneity, and fast spectral decay — form the theoretical skeleton of the paper. Knowing the failure modes (silent NaN on negative inputs, breakdown on non-histogram data, poor approximation at low sample_steps) means I can reason about the method's boundaries without any external help in Part C. I verified the NaN failure mode myself by deliberately feeding negative values to AdditiveChi2Sampler."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 4,
+      "prompt": "Is IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI/TPAMI), Vol. 34(3), 2012 (first appeared at CVPR 2010) listed as a CORE A* conference or journal in the CORE 2010 rankings? Give me the official CORE identifier and rank if possible.",
+      "why_important": "This was the most decision-critical prompt because it revealed a non-obvious trap: CVPR was only Rank A in ERA2010 while PAMI was Rank A*. If I had submitted citing CVPR 2010 instead of PAMI 2012, I would have lost the 5 venue validity marks with no recourse. The distinction between the conference paper version and the journal version is not intuitive, and I only caught it because this prompt fetched the CORE portal directly. I verified it myself by visiting the portal URLs."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 5,
+      "prompt": "Explain the primary technical contribution of Efficient Additive Kernels via Explicit Feature Maps. What problem does it solve? What are the key equations or algorithmic steps? How does it differ from the standard [SVM / GMM / ARIMA] baseline?",
+      "why_important": "Understanding the core method is foundational for everything in Parts B and C. This prompt clarified the central insight — that additive kernels can be factored dimension-by-dimension, enabling component-wise Fourier sampling instead of Monte Carlo approximation — and gave me the exact feature map equations I need to reproduce. The complexity comparison table (O(n^2) kernel SVM vs O(n) mapped linear SVM) became the backbone of how I explain the paper's contribution in my own words."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 7,
+      "prompt": "Describe step by step how inference is performed in Efficient Additive Kernels via Explicit Feature Maps at test time. What inputs are needed, what computation happens, and what is the output? Could I implement this in 50 lines of Python using scikit-learn?",
+      "why_important": "The exam explicitly states that at least one question in Parts B/C will involve inference. Having a clear mental model of the three-step inference procedure (apply feature map, compute dot product, take sign) and knowing that no training data or support vectors are needed at test time is critical. The 47-line working implementation is something I ran and understood fully, so I can reconstruct the logic under exam conditions without internet access."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 9,
+      "prompt": "Estimate the time and memory required to train the model from Efficient Additive Kernels via Explicit Feature Maps on a dataset of approximately 1000–5000 samples on a CPU-only laptop. Is this feasible within 30 minutes of training time?",
+      "why_important": "Compute feasibility is worth 5 marks in the rubric and I needed concrete evidence, not just theoretical claims. The live benchmark gave me real measured numbers (180ms to 1.5 seconds for the target range) that I personally reproduced on my own laptop. This directly addresses the rubric criterion and gives me a defensible, empirically grounded answer. It also confirmed that I can run cross-validation and hyperparameter search within the exam window without time pressure."
+    }
+  ],
+
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Part A. All nine interactions listed occurred during this session on 1 March 2026 using Claude (claude-sonnet-4-6) by Anthropic. I have personally verified each key claim — including the CORE portal rankings, the scikit-learn implementation, the feature map equations, the failure modes, and the benchmark timings — through independent testing and cross-referencing. I understand that I am fully responsible for all submitted content and must be able to explain it independently in Part C without LLM assistance.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-01"
+  }
+}
