@@ -1,0 +1,72 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 4.1",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 4.1",
+      "purpose": "Structure the 4-page report to cover all required sections",
+      "prompt": "The Part B report must be max 4 pages covering: paper summary, reproduction result, two ablation findings, failure mode, and honest reflection. How should I structure this to fit everything within the page limit?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Suggested a 5-section structure with target paragraph lengths. Used as a planning scaffold before writing.",
+      "student_verification": "Counted final report at 4 pages \u2014 fits within limit. All five required sections present.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 4.1",
+      "purpose": "Write the honest reflection section accurately",
+      "prompt": "What are honest limitations and surprises I should mention in the Part B reflection for Efficient Additive Kernels? What would I do differently with more time?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Suggested: acknowledging that load_digits is too easy to show the full magnitude of kernel improvement, that exact kernel SVM comparison was omitted for compute reasons, and that exploring l1 normalisation vs l2 normalisation effect more carefully would be worthwhile.",
+      "student_verification": "These are genuine observations \u2014 confirmed that exact SVM was not run, and that the load_digits baseline accuracy being ~96% leaves less room for improvement than Caltech-101.",
+      "confidence_level": 3
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "The Part B report must be max 4 pages covering: paper summary, reproduction result, two ablation findings, failure mode, and honest reflection. How should I structure this to fit everything within the page limit?",
+      "why_important": "The report structure prompt prevented over-writing the paper summary at the expense of the reflection section, which carries equal marks."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "What are honest limitations and surprises I should mention in the Part B reflection for Efficient Additive Kernels? What would I do differently with more time?",
+      "why_important": "The reflection section is specifically tested in Part C ('what surprised you, what would you revisit'). Having genuine, specific observations rather than generic statements is essential."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 4.1.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}

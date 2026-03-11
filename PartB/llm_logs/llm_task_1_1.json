@@ -1,0 +1,94 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 1.1",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 1.1",
+      "purpose": "Understand the step-by-step method pipeline from input to output",
+      "prompt": "Explain the primary technical contribution of Efficient Additive Kernels via Explicit Feature Maps step by step from input to final prediction output. Reference specific equations and sections for each step.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Gave a clear 7-step pipeline structure which I verified against the paper's Section 2\u20134 and used as the scaffold for my markdown response.",
+      "student_verification": "Verified each step against the paper: Step 3 against Section 2 Eq. 3, Step 5 against Section 4.2 Eq. 19, Step 8 against Section 1 inference discussion.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 1.1",
+      "purpose": "Clarify the role of the kernel signature and Bochner's theorem",
+      "prompt": "In the paper Efficient Additive Kernels, what is the kernel signature K(\u03bb) and how does Bochner's theorem connect it to the feature map? Why is working in log-space important for homogeneous kernels?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Clarified why the signature reduces the 2D kernel to a 1D function, and how log-space transformation enables Fourier analysis. Used for Steps 3\u20134 of Task 1.1.",
+      "student_verification": "Cross-checked against Section 2 Eqs. 2\u20133 and Section 3 Bochner derivation (Eqs. 9\u201312). The log-space interpretation matches exactly.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 1.1",
+      "purpose": "Understand the component-wise/additive decomposition for multi-dimensional kernels",
+      "prompt": "Why does the additive property of the kernel (K(x,y) = sum k(xi,yi)) allow the feature map to be applied dimension by dimension? What would change if the kernel were multiplicative instead?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Clarified the direct sum vs Kronecker product distinction in Equation 13, and why additivity is the key structural property enabling the O(D) complexity.",
+      "student_verification": "Checked against Section 3, Equation 13 \u2014 confirmed the additive case uses \u2295 (direct sum, dimensionality nD) vs multiplicative case \u2297 (Kronecker, n^D).",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Explain the primary technical contribution of Efficient Additive Kernels via Explicit Feature Maps step by step from input to final prediction output. Reference specific equations and sections for each step.",
+      "why_important": "This was the most foundational prompt \u2014 it established the entire structure of the Task 1.1 response and forced me to connect every step to a specific equation or section."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "In the paper Efficient Additive Kernels, what is the kernel signature K(\u03bb) and how does Bochner's theorem connect it to the feature map? Why is working in log-space important for homogeneous kernels?",
+      "why_important": "Understanding the signature was the hardest conceptual step. This prompt helped me explain Step 3 accurately with the correct paper reference."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "Why does the additive property of the kernel (K(x,y) = sum k(xi,yi)) allow the feature map to be applied dimension by dimension? What would change if the kernel were multiplicative instead?",
+      "why_important": "This distinction is central to the paper's efficiency argument and appears directly in Eq. 13. Being able to explain it in Step 6 of Task 1.1 is essential for Part C."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.1.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}

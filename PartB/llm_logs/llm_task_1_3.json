@@ -1,0 +1,72 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 1.3",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 1.3",
+      "purpose": "Identify the main baseline the paper compares against and its limitation",
+      "prompt": "What is the main baseline method that the paper Efficient Additive Kernels explicitly compares against? What limitation does the paper identify in this baseline, and how does the proposed method overcome it?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Identified three baseline comparisons (exact LIBSVM kernel, Maji-Berg, addKPCA) with distinct limitations. Helped structure the three-part answer in Task 1.3.",
+      "student_verification": "Checked all three baselines are named in the paper: exact kernel in Table 1, MB in Section 6 and Table 2, addKPCA in Section 4.1 and Section 9.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 1.3",
+      "purpose": "Reason about conditions where the paper's method would NOT outperform the baseline",
+      "prompt": "Under what specific condition would the homogeneous kernel map from Efficient Additive Kernels fail to outperform the exact kernel SVM baseline? Give a scenario grounded in the paper's own analysis.",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Suggested the signed-feature failure case and the domain mismatch with RBF kernels. The Table 4 GRBF result (20\u201330% EER reduction) also confirms that additive kernels are not universally best.",
+      "student_verification": "Checked Table 4 in Section 8.2: exact GRBF kernels achieve 7.0% EER vs 8.9\u20139.2% for additive kernels \u2014 confirms the scenario is paper-grounded.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "What is the main baseline method that the paper Efficient Additive Kernels explicitly compares against? What limitation does the paper identify in this baseline, and how does the proposed method overcome it?",
+      "why_important": "Foundational for Task 1.3 \u2014 correctly naming the baseline and its limitation accounts for 4 of the 9 marks."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "Under what specific condition would the homogeneous kernel map from Efficient Additive Kernels fail to outperform the exact kernel SVM baseline? Give a scenario grounded in the paper's own analysis.",
+      "why_important": "The 4-mark sub-question in Task 1.3 rewards reasoned inference. This prompt helped me build a grounded answer connecting Table 4 results to the underlying assumptions."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.3.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}

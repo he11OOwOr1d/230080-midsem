@@ -1,0 +1,72 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 2.1",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 2.1",
+      "purpose": "Justify load_digits as substitute for Caltech-101 for this specific method",
+      "prompt": "The paper Efficient Additive Kernels uses Caltech-101 with dense SIFT histograms. What publicly available substitute dataset from sklearn is most appropriate for reproducing the method? Justify the choice structurally \u2014 why does the dataset satisfy the method's specific requirements?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Confirmed load_digits as the most appropriate choice \u2014 pixel intensity distributions are structurally analogous to SIFT histogram bins. The sklearn documentation also directly uses load_digits for AdditiveChi2Sampler.",
+      "student_verification": "Checked sklearn kernel_approximation docs: AdditiveChi2Sampler example uses load_digits with direct citation of Vedaldi & Zisserman (2011). Structural analogy between pixel bins and histogram bins is sound.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 2.1",
+      "purpose": "Understand the limitations of load_digits vs Caltech-101",
+      "prompt": "What are the key limitations of load_digits compared to Caltech-101 for reproducing the Efficient Additive Kernels paper? Why will absolute accuracy numbers differ?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Identified three limitations: task difficulty (10 classes vs 102), feature richness (64 raw pixels vs 4200-dim SIFT), and dataset size/complexity.",
+      "student_verification": "Confirmed from paper: Section 8.1 states '4200-dimensional histogram of visual words with 1\u00d71, 2\u00d72, and 4\u00d74 spatial subdivisions'. Load_digits has 64 raw pixel values.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "The paper Efficient Additive Kernels uses Caltech-101 with dense SIFT histograms. What publicly available substitute dataset from sklearn is most appropriate for reproducing the method? Justify the choice structurally \u2014 why does the dataset satisfy the method's specific requirements?",
+      "why_important": "This is the most important dataset justification \u2014 Task 2.1 requires explaining why the dataset is appropriate for THIS paper specifically, not just for SVM in general."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "What are the key limitations of load_digits compared to Caltech-101 for reproducing the Efficient Additive Kernels paper? Why will absolute accuracy numbers differ?",
+      "why_important": "Task 2.1 requires explicitly stating limitations \u2014 having a clear articulation of why numbers will differ is essential for honest reporting in Task 2.3."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.1.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}

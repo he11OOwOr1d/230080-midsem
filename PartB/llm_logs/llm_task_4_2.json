@@ -1,0 +1,50 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 4.2",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 4.2",
+      "purpose": "Understand the additional required fields for Part B LLM JSON files",
+      "prompt": "Part B LLM JSON files require three new fields beyond Part A: task_tag, code_used_verbatim, and student_modification. What values should these fields take when I modified the code or when no code was involved?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Clarified that code_used_verbatim should be False when code was adapted rather than copied verbatim, and student_modification should explain what was changed even when the answer is 'N/A \u2014 no code in this task'.",
+      "student_verification": "Checked Part B instructions: 'student_modification is required when code_used_verbatim = true'. Confirmed correct field names and values from the exam PDF.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Part B LLM JSON files require three new fields beyond Part A: task_tag, code_used_verbatim, and student_modification. What values should these fields take when I modified the code or when no code was involved?",
+      "why_important": "Getting the JSON structure correct is worth 1.5 marks per file \u00d7 10 files = 15 marks. Missing a required field in any file causes point loss."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 4.2.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}

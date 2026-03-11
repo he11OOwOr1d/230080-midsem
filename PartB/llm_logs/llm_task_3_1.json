@@ -1,0 +1,94 @@
+{
+  "student_metadata": {
+    "name": "Nikhil Raj",
+    "roll_number": "230080",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 3.1",
+    "submission_date": "2026-03-12"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 3.1",
+      "purpose": "Choose which two components to ablate and justify the choices",
+      "prompt": "For the Efficient Additive Kernels paper, which two components should I ablate in Task 3.1? The ablations must be independent, specific to the paper, and reveal something meaningful about the method's contribution.",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Suggested: (1) Remove feature map entirely (sample_steps=0 equivalent \u2014 raw features only) and (2) Reduce sample_steps from 2 to 1. Both are paper-specific and independent.",
+      "student_verification": "Both ablations run successfully. Results confirmed: removing the map causes a 2.44% drop; reducing steps causes a 0.88% drop. Both findings directionally match the paper's theoretical predictions.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 3.1",
+      "purpose": "Write interpretation paragraph for ablation 2 (sample_steps reduction)",
+      "prompt": "My ablation shows sample_steps=1 gives 97.56% and sample_steps=2 gives 98.22% on load_digits. How should I interpret this in terms of the paper's theoretical claims in Section 5 about approximation error decay?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Connected the empirical result to Lemma 3 (Eq. 25) \u2014 the approximation error decays with n, and the diminishing returns at n=3 are consistent with the paper's exponential convergence claim for \u03c7\u00b2.",
+      "student_verification": "Checked Section 5 text: 'error decays as O(exp(-sqrt(min{\u03b1/2, \u03b3/4} \u03c0(n+1)\u03b2)))' for \u03c7\u00b2. The saturation at n=3 in my results is consistent with exponential convergence.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-08",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "task_tag": "Task 3.1",
+      "purpose": "Understand the cross-validation pipeline for ablation robustness",
+      "prompt": "Should I use train/test split or cross-validation for the ablation experiments? What is more appropriate for demonstrating that the ablation effect is reliable?",
+      "llm_response_used": "Partially",
+      "code_used_verbatim": false,
+      "student_modification": "N/A",
+      "how_it_helped": "Recommended 5-fold CV for ablation 1 to show robustness, since the train/test split might show the difference by luck. The error bars confirm the gap is consistent.",
+      "student_verification": "5-fold CV results: no-map 96.38%\u00b10.83% vs full 98.39%\u00b10.48%. Confirms the improvement is consistent and not a one-split artifact.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "For the Efficient Additive Kernels paper, which two components should I ablate in Task 3.1? The ablations must be independent, specific to the paper, and reveal something meaningful about the method's contribution.",
+      "why_important": "Ablation choice is the highest-risk decision in Task 3.1 \u2014 wrong choices lose 6/10 interpretation marks. This prompt confirmed the choices are grounded in the paper's specific components."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "My ablation shows sample_steps=1 gives 97.56% and sample_steps=2 gives 98.22% on load_digits. How should I interpret this in terms of the paper's theoretical claims in Section 5 about approximation error decay?",
+      "why_important": "The interpretation paragraph accounts for 6/10 marks in each ablation. Connecting the empirical result to the paper's theoretical section shows analytical depth."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "Should I use train/test split or cross-validation for the ablation experiments? What is more appropriate for demonstrating that the ablation effect is reliable?",
+      "why_important": "Using CV with error bars strengthens the ablation evidence. The narrower standard deviation for the full method also reveals something new: the feature map stabilises generalisation."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 3.1.",
+    "understanding_acknowledged": true,
+    "signature": "Nikhil Raj",
+    "date": "2026-03-12"
+  }
+}
